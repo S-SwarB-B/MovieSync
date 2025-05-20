@@ -10,10 +10,11 @@
 <body>
     <!-- Шапка -->
     <header class="header">
-        <div class="logo">
+        <a href="MainScreen.html" class="logo">
             <i class="fas fa-film"></i>
             <span class="logo-text">MOVIESYNC</span>
-        </div>
+        </a>
+        
         
         <div class="search-bar">
             <input type="text" placeholder="Поиск фильмов...">
@@ -34,11 +35,23 @@
         <!-- Боковая панель -->
         <aside class="sidebar">
             <nav>
-                <ul>
-                    <li class="active"><i class="fas fa-home"></i> Главная</li>
-                    <li><i class="fas fa-film"></i> Все фильмы</li>
-                    <li><i class="fas fa-heart"></i> Избранное</li>
-                </ul>
+              <ul>
+                <li class="active">
+                  <a href="MainScreen.html">
+                    <i class="fas fa-home"></i> Главная
+                  </a>
+                </li>
+                <li>
+                  <a href="AllFilms.html">
+                    <i class="fas fa-film"></i> Все фильмы
+                  </a>
+                </li>
+                <li>
+                  <a href="Favorites.html">
+                    <i class="fas fa-heart"></i> Избранное
+                  </a>
+                </li>
+              </ul>
             </nav>
         </aside>
 

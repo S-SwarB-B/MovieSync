@@ -53,4 +53,20 @@ document.addEventListener('DOMContentLoaded', function() {
             hideModal(registerModal);
         }
     });
+
+    // === ПОДСВЕТКА ТЕКУЩЕЙ ВКЛАДКИ И СБРОС ДРУГИХ ===
+    const navLinks = document.querySelectorAll('.sidebar a');
+    const currentPage = window.location.pathname.split('/').pop();
+
+    navLinks.forEach(link => {
+        const li = link.closest('li');
+        // Удаляем класс active у всех
+        li.classList.remove('active');
+    
+        // Добавляем класс только если ссылка совпадает с текущей страницей
+        if (link.getAttribute('href') === currentPage) {
+            li.classList.add('active');
+        }
+    });
 });
+
