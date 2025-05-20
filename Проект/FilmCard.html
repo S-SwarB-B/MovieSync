@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Карточка фильма</title>
+    <link rel="stylesheet" href="movie.css">
+    <link rel="stylesheet" href="CSSFile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <div class="logo">
+            <i class="fas fa-film"></i>
+            <span class="logo-text">MOVIESYNC</span>
+        </div>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск фильмов...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="user-actions">
+            <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
+            <button class="btn btn-register"><i class="fas fa-user-plus"></i> Регистрация</button>
+            <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
+        </div>
+    </header>
+    <div class="main-container">
+    <main class="movie-card">
+        <div class="poster">
+            <img src="assets/images/sample-poster.png" alt="Постер фильма">
+        </div>
+        <div class="details">
+            <h1 class="title">Название фильма</h1>
+            <p class="rating">Рейтинг: <span class="badge green">8.5</span></p>
+            <p class="description">
+                Здесь будет краткое описание фильма. Оно может содержать информацию о сюжете, актерах, режиссере и другой интересной информации.
+            </p>
+            <p class="genre">Жанр: Фантастика, Приключения</p>
+            <p class="year">Год выпуска: 2024</p>
+        </div>
+    </main>
+    </div>
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 MovieSync</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
