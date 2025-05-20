@@ -1,3 +1,7 @@
+a{
+    text-decoration: none;
+}
+
 :root {
     --dark-bg: #121212;
     --darker-bg: #0a0a0a;
