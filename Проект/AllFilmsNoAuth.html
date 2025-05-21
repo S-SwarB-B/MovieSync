@@ -8,46 +8,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Шапка -->
     <header class="header">
         <a href="MainScreen.html" class="logo">
             <i class="fas fa-film"></i>
             <span class="logo-text">MOVIESYNC</span>
         </a>
-        
         <div class="search-bar">
             <input type="text" placeholder="Поиск фильмов...">
             <button><i class="fas fa-search"></i></button>
         </div>
-        
         <div class="user-actions">
-            
-            <a href="Profile.html">
-                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
-            </a>
+            <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
+            <button class="btn btn-register"><i class="fas fa-user-plus"></i> Регистрация</button>
+            <!-- Кнопка «Кабинет» удалена -->
         </div>
     </header>
 
     <div class="main-container">
-    <!-- Боковая панель -->
-    <aside class="sidebar">
+        <!-- Боковая панель -->
+        <aside class="sidebar">
             <nav>
-              <ul>
-                <li class="active">
-                  <a href="MainScreen.html">
-                    <i class="fas fa-home"></i> Главная
-                  </a>
-                </li>
-                <li>
-                  <a href="AllFilms.html">
-                    <i class="fas fa-film"></i> Все фильмы
-                  </a>
-                </li>
-                <li>
-                  <a href="Favorite.html">
-                    <i class="fas fa-heart"></i> Избранное
-                  </a>
-                </li>
-              </ul>
+                <ul>
+                    <li>
+                        <a href="MainScreenNoAuth.html"><i class="fas fa-home"></i> Главная</a>
+                    </li>
+                    <li>
+                        <a href="AllFilmsNoAuth.html" class="active"><i class="fas fa-film"></i> Все фильмы</a>
+                    </li>
+                    <li>
+                        <!-- неактивная ссылка -->
+                        <a href="#" class="disabled-link"><i class="fas fa-heart"></i> Избранное</a>
+                    </li>
+                </ul>
             </nav>
         </aside>
 
@@ -60,7 +53,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -68,7 +61,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -76,7 +69,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -84,7 +77,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -92,7 +85,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -100,7 +93,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -108,7 +101,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -116,7 +109,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -127,7 +120,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -135,7 +128,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -143,7 +136,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -151,7 +144,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -159,7 +152,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -167,7 +160,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -175,7 +168,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -183,7 +176,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -194,7 +187,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -202,7 +195,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -210,7 +203,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -218,7 +211,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -226,7 +219,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -234,7 +227,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -242,7 +235,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -250,7 +243,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -261,7 +254,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -269,7 +262,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -277,7 +270,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -285,7 +278,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -293,7 +286,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -301,7 +294,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator yellow"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -309,7 +302,7 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator red"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
@@ -317,15 +310,20 @@
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">Название фильма</div>
                         <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
+                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
                 </div>
             </main>
         </main>
-                
     </div>
+
+    
+    <div id="auth-toast" class="auth-toast hidden">
+        Доступно только авторизованным пользователям
+    </div>
+
     <!-- Подвал -->
     <footer class="footer">
         <div class="footer-content">
@@ -337,5 +335,8 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+
+   <script src="script.js"></script>
+    
 </body>
+</html>
