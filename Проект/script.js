@@ -68,5 +68,43 @@ document.addEventListener('DOMContentLoaded', function() {
             li.classList.add('active');
         }
     });
+
+ // === FAVORITES ===
+    function toggleFavorite(event) {
+        event.preventDefault(); // Остановить переход по ссылке
+        event.stopPropagation();
+
+        const button = event.currentTarget;
+        const card = button.closest('.movie-thumbnail');
+        const title = card.querySelector('.movie-title-small').textContent;
+
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const index = favorites.indexOf(title);
+
+        if (index > -1) {
+            favorites.splice(index, 1);
+            button.classList.remove('active');
+        } else {
+            favorites.push(title);
+            button.classList.add('active');
+        }
+
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+    }
+
+    // Назначаем обработчики всем кнопкам избранного
+    const favoriteButtons = document.querySelectorAll('.favorite-btn');
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+    favoriteButtons.forEach(button => {
+        const card = button.closest('.movie-thumbnail');
+        const title = card.querySelector('.movie-title-small').textContent;
+
+        if (favorites.includes(title)) {
+            button.classList.add('active');
+        }
+
+        button.addEventListener('click', toggleFavorite);
+    });
 });
 

@@ -413,3 +413,19 @@ body {
 .rating-indicator.red {
     background-color: #d50000;
 }
+.favorite-btn {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.favorite-btn:hover,
+.favorite-btn.active {
+    color: var(--primary);
+}
