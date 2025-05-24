@@ -470,3 +470,17 @@ a.no-style {
     font-size: 1.2rem;
     cursor: pointer;
 }
+
+a.btn-submit {
+  display: inline-block;
+  text-align: center;
+  background-color: var(--primary);
+  color: black;
+  padding: 10px 20px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+}
+a.btn-submit:hover {
+  background-color: var(--primary-dark);
+}
