@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -10,7 +11,7 @@
 <body>
     <!-- Шапка -->
     <header class="header">
-        <a href="MainScreen.html" class="logo">
+        <a href="{% url 'main_screen_no_auth' %}" class="logo">
             <i class="fas fa-film"></i>
             <span class="logo-text">MOVIESYNC</span>
         </a>
@@ -31,10 +32,10 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="MainScreenNoAuth.html"><i class="fas fa-home"></i> Главная</a>
+                        <a href="{% url 'main_screen_no_auth' %}"><i class="fas fa-home"></i> Главная</a>
                     </li>
                     <li>
-                        <a href="AllFilmsNoAuth.html" class="active"><i class="fas fa-film"></i> Все фильмы</a>
+                        <a href="{% url 'all_films_no_auth' %}" class="active"><i class="fas fa-film"></i> Все фильмы</a>
                     </li>
                     <li>
                         <!-- неактивная ссылка -->

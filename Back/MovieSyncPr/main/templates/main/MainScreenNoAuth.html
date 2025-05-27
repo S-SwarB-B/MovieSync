@@ -12,7 +12,7 @@
   <body>
     <!-- Шапка -->
     <header class="header">
-      <a href="MainScreen.html" class="logo">
+      <a href="{% url 'main_screen_no_auth' %}" class="logo">
         <i class="fas fa-film"></i>
         <span class="logo-text">MOVIESYNC</span>
       </a>
@@ -40,12 +40,12 @@
         <nav>
           <ul>
             <li class="active">
-              <a href="MainScreenNoAuth.html">
+              <a href="{% url 'main_screen_no_auth' %}">
                 <i class="fas fa-home"></i> Главная
               </a>
             </li>
             <li>
-              <a href="AllFilmsNoAuth.html">
+              <a href="{% url 'all_films_no_auth' %}">
                 <i class="fas fa-film"></i> Все фильмы
               </a>
             </li>
@@ -113,7 +113,7 @@
               <label for="login-password">Пароль</label>
               <input type="password" id="login-password" required />
             </div>
-            <a href="MainScreen.html" class="btn-submit">Войти</a>
+            <a href="{% url 'main_screen' %}" class="btn-submit">Войти</a>
           </form>
         </div>
       </div>
@@ -140,7 +140,7 @@
               <label for="reg-confirm">Подтвердите пароль</label>
               <input type="password" id="reg-confirm" required />
             </div>
-            <a href="MainScreen.html" class="btn-submit">Зарегистрироваться</a>
+            <a href="{% url 'main_screen' %}" class="btn-submit">Зарегистрироваться</a>
           </form>
         </div>
       </div>

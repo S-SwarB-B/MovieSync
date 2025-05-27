@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,7 +10,7 @@
 </head>
 <body>
     <header class="header">
-        <a href="MainScreen.html" class="logo">
+        <a href="{% url 'main_screen' %}" class="logo">
             <i class="fas fa-film"></i>
             <span class="logo-text">MOVIESYNC</span>
         </a>
@@ -21,7 +22,7 @@
         
         <div class="user-actions">
             
-            <a href="Profile.html">
+            <a href="{% url 'profile' %}">
                 <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
             </a>
         </div>
@@ -33,17 +34,17 @@
             <nav>
               <ul>
                 <li class="active">
-                  <a href="MainScreen.html">
+                  <a href="{% url 'main_screen' %}">
                     <i class="fas fa-home"></i> Главная
                   </a>
                 </li>
                 <li>
-                  <a href="AllFilms.html">
+                  <a href="{% url 'all_films' %}">
                     <i class="fas fa-film"></i> Все фильмы
                   </a>
                 </li>
                 <li>
-                  <a href="Favorite.html">
+                  <a href="{% url 'favorite' %}">
                     <i class="fas fa-heart"></i> Избранное
                   </a>
                 </li>
