@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>MovieSync</title>
+    <link rel="stylesheet" href="../../static/main/css/movie.css">
+    <link rel="stylesheet" href="../../static/main/css/CSSFile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Шапка -->
+    <header class="header">
+        <a href="MainScreen.html" class="logo">
+            <i class="fas fa-film"></i>
+            <span class="logo-text">MOVIESYNC</span>
+        </a>
+        
+        <div class="search-bar">
+            <input type="text" placeholder="Поиск фильмов...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        
+        <div class="user-actions">
+            <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
+            <button class="btn btn-register"><i class="fas fa-user-plus"></i> Регистрация</button>
+            <a href="Profile.html" >
+                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
+            </a>
+        </div>
+    </header>
+    <main class="content">
+    <div class="movie-card">
+        <div class="movie-poster">
+            <img src="poster-placeholder.jpg" alt="Постер фильма">
+        </div>
+        <div class="movie-details">
+            <h2 class="movie-title">Название фильма 2</h2>
+            <p class="movie-tags">#драма #боевик</p>
+            <p class="movie-description">
+                Здесь будет описание фильма. Оно может быть длинным, поэтому
+                мы отображаем несколько строк с текстом, чтобы пользователь
+                понял, о чём фильм.
+            </p>
+            <div class="movie-buttons">
+                <button class="btn-watch">Смотреть</button>
+                <button class="btn-watch-together">Смотреть вместе</button>
+            </div>
+        </div>
+    </div>
+</main>
+    <!-- Подвал -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2025 MovieSync</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-vk"></i></a>
+                <a href="#"><i class="fab fa-telegram"></i></a>
+                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

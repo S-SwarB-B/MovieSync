@@ -1,0 +1,74 @@
+.movie-card {
+    display: flex;
+    background-color: var(--darker-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.1);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.movie-poster img {
+    width: 180px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: 10px;
+    background-color: #333;
+}
+
+.movie-details {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.movie-title {
+    font-size: 1.8rem;
+    color: var(--text);
+}
+
+.movie-tags {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.movie-description {
+    color: var(--text);
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.movie-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-watch,
+.btn-watch-together {
+    padding: 0.8rem 1.6rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+.btn-watch {
+    background: linear-gradient(135deg, #BB86FC, #8A2BE2);
+}
+
+.btn-watch-together {
+    background: linear-gradient(135deg, #A46DFF, #9370DB);
+}
+
+.btn-watch:hover,
+.btn-watch-together:hover {
+    opacity: 0.9;
+}
+
+a{
+    text-decoration: none;
+}
