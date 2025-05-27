@@ -19,3 +19,12 @@ def favorite(request):
 def profile(request):
     return render(request, 'main/Profile.html')
 
+def film1(request):
+    return render(request, 'main/FilmCard.html')
+
+def film2(request):
+    return render(request, 'main/FilmCard1.html')
+
+def film3(request):
+    return render(request, 'main/FilmCard2.html')
+

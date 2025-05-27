@@ -7,4 +7,7 @@ urlpatterns = [
     path('AllFilms', views.all_films, name='all_films'),
     path('Favorite', views.favorite, name='favorite'),
     path('Profile', views.profile, name='profile'),
+    path('Film1', views.film1, name='film1'),
+    path('Film2', views.film2, name='film2'),
+    path('Film3', views.film3, name='film3'),
 ]
