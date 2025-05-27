@@ -1,0 +1,34 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/136.0.0.0 Safari/537.36 Edg/136.0.0.0" version="27.0.9">
+  <diagram name="Страница — 1" id="hZ1LzMPTcpbbMqU2xwub">
+    <mxGraphModel dx="978" dy="542" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-1" value="База данных&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="304" y="200" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-2" value="Система" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="430" y="300" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-3" value="Клиент" style="verticalAlign=top;align=left;spacingTop=8;spacingLeft=2;spacingRight=12;shape=cube;size=10;direction=south;fontStyle=4;html=1;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="304" y="400" width="110" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=80;entryDy=60;entryPerimeter=0;endArrow=none;startFill=0;" edge="1" parent="1" source="13ly0P4kvU0qJlNOKJ17-3" target="13ly0P4kvU0qJlNOKJ17-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0;entryDx=35;entryDy=0;entryPerimeter=0;endArrow=none;startFill=0;exitX=0;exitY=0;exitDx=0;exitDy=50;exitPerimeter=0;" edge="1" parent="1" source="13ly0P4kvU0qJlNOKJ17-2" target="13ly0P4kvU0qJlNOKJ17-1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="620" y="310" as="sourcePoint" />
+            <mxPoint x="686" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-6" value="информация&lt;div&gt;об аккаунтах&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="304" y="240" width="100" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="13ly0P4kvU0qJlNOKJ17-8" value="интерфейс&lt;div&gt;регистрации&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="304" y="440" width="90" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
