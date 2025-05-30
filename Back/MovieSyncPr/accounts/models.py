@@ -2,7 +2,8 @@ from django.db import models
 
 # Create your models here.
 class Users(models.Model):
-    name = models.CharField('Имя пользователя', max_length=60)
-    email = models.CharField('Email', max_length=100)
-    password = ''
-    pass_confirm = ''
+    name = models.CharField(max_length=60)
+    email = models.CharField(max_length=100)
+    password =  models.CharField(max_length=100)
+    picture = models.ImageField(upload_to='pictures/')
+    created_at = models.DateTimeField(auto_now_add=True)
