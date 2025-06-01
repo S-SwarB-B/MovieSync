@@ -63,18 +63,10 @@
         <h1>Популярные фильмы</h1>
         <main class="content">
           <div class="movie-grid">
-            <a href="{% url 'film1' %}" class="movie-thumbnail">
+            <a href="{% url 'film' %}" class="movie-thumbnail">
               <div class="thumbnail-poster"></div>
               <div class="movie-title-small">Название фильма 1</div>
               <div class="rating-indicator green"></div>
-              <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
-                <i class="fas fa-heart"></i>
-              </button>
-            </a>
-            <a href="{% url 'film2' %}" class="movie-thumbnail">
-              <div class="thumbnail-poster"></div>
-              <div class="movie-title-small">Название фильма 2</div>
-              <div class="rating-indicator yellow"></div>
               <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                 <i class="fas fa-heart"></i>
               </button>

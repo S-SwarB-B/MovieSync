@@ -1,5 +1,7 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404
+
+from accounts.models import Users
+
 
 def main_screen_no_auth(request):
     return render(request, 'main/MainScreenNoAuth.html')
@@ -16,15 +18,13 @@ def all_films(request):
 def favorite(request):
     return render(request, 'main/Favorite.html')
 
-def profile(request):
-    return render(request, 'main/Profile.html')
+def profile(request, profile_id):
+    profile_ = get_object_or_404(Users, pk=profile_id)
+    data = {
+        'profile': profile_
+    }
+    return render(request, 'main/Profile.html', data)
 
-def film1(request):
+def film(request):
     return render(request, 'main/FilmCard.html')
-
-def film2(request):
-    return render(request, 'main/FilmCard1.html')
-
-def film3(request):
-    return render(request, 'main/FilmCard2.html')
 
