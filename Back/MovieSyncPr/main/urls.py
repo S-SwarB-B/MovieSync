@@ -7,5 +7,7 @@ urlpatterns = [
     path('AllFilms/', views.all_films, name='all_films'),
     path('Favorite/', views.favorite, name='favorite'),
     path('Profile/<int:profile_id>', views.profile, name='profile'),
-    path('Film/', views.film, name='film'),
+    #path('Film/', views.film, name='film'),
+    path('<int:pk>', views.FilsDetailView.as_view(), name='film_detail'),
+
 ]

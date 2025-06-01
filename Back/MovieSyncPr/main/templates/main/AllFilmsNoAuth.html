@@ -9,123 +9,125 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <a href="{% url 'main_screen_no_auth' %}" class="logo">
-            <i class="fas fa-film"></i>
-            <span class="logo-text">MOVIESYNC</span>
-        </a>
-        <div class="search-bar">
-            <input type="text" placeholder="Поиск фильмов...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        <div class="user-actions">
-            <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
-            <button class="btn btn-register"><i class="fas fa-user-plus"></i> Регистрация</button>
-            <!-- Кнопка «Кабинет» удалена -->
-        </div>
-    </header>
+<!-- Шапка -->
+<header class="header">
+    <a href="{% url 'main_screen_no_auth' %}" class="logo">
+        <i class="fas fa-film"></i>
+        <span class="logo-text">MOVIESYNC</span>
+    </a>
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск фильмов...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+    <div class="user-actions">
+        <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
+        <button class="btn btn-register"><i class="fas fa-user-plus"></i> Регистрация</button>
+        <!-- Кнопка «Кабинет» удалена -->
+    </div>
+</header>
 
-    <div class="main-container">
-        <!-- Боковая панель -->
-        <aside class="sidebar">
-            <nav>
-                <ul>
-                    <li>
-                        <a href="{% url 'main_screen_no_auth' %}"><i class="fas fa-home"></i> Главная</a>
-                    </li>
-                    <li>
-                        <a href="{% url 'all_films_no_auth' %}" class="active"><i class="fas fa-film"></i> Все фильмы</a>
-                    </li>
-                    <li>
-                        <!-- неактивная ссылка -->
-                        <a href="#" class="disabled-link"><i class="fas fa-heart"></i> Избранное</a>
-                    </li>
-                </ul>
-            </nav>
-        </aside>
-
+<div class="main-container">
+    <!-- Боковая панель -->
+    <aside class="sidebar">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'main_screen_no_auth' %}"><i class="fas fa-home"></i> Главная</a>
+                </li>
+                <li>
+                    <a href="{% url 'all_films_no_auth' %}" class="active"><i class="fas fa-film"></i> Все фильмы</a>
+                </li>
+                <li>
+                    <!-- неактивная ссылка -->
+                    <a href="#" class="disabled-link"><i class="fas fa-heart"></i> Избранное</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="content">
+        <h1>Все фильмы</h1>
         <!-- Контентная область -->
-        <main class="content">
-            <h1>Все фильмы</h1>
-            <main class="content">
-                <div class="movie-grid">
-                    <a href="{% url 'film' %}" class="movie-thumbnail">
-                        <div class="thumbnail-poster"></div>
-                        <div class="movie-title-small">Название фильма</div>
-                        <div class="rating-indicator green"></div>
-                        <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
-                            <i class="fas fa-heart"></i>
-                        </button>
-                    </a>
-                </div>
-            </main>
-        </main>
-    </div>
-    
-    <div id="auth-toast" class="auth-toast hidden">
-        Доступно только авторизованным пользователям
-    </div>
+        {% if films %}
+        <div class="movie-grid">
+            {% for film in films %}
+            <a href="{% url 'film_detail' film.id %}" class="movie-thumbnail">
+                <div class="thumbnail-poster"></div>
+                <div class="movie-title-small">{{ film.title }}</div>
+                <div class="rating-indicator green"></div>
+                <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>У вас нет записей</p>
+        {% endif %}
+</div>
 
-    <!-- Форма входа (изначально скрыта) -->
-      <div class="auth-modal login-modal" style="display: none">
-        <div class="modal-content">
-          <span class="close-modal">&times;</span>
-          <h2>Вход в аккаунт</h2>
-          <form id="login-form">
+<div id="auth-toast" class="auth-toast hidden">
+    Доступно только авторизованным пользователям
+</div>
+
+<!-- Форма входа (изначально скрыта) -->
+<div class="auth-modal login-modal" style="display: none">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Вход в аккаунт</h2>
+        <form id="login-form">
             <div class="form-group">
-              <label for="login-email">Email</label>
-              <input type="email" id="login-email" required />
+                <label for="login-email">Email</label>
+                <input type="email" id="login-email" required/>
             </div>
             <div class="form-group">
-              <label for="login-password">Пароль</label>
-              <input type="password" id="login-password" required />
+                <label for="login-password">Пароль</label>
+                <input type="password" id="login-password" required/>
             </div>
             <a href="MainScreen.html" class="btn-submit">Войти</a>
-          </form>
-        </div>
-      </div>
+        </form>
+    </div>
+</div>
 
-      <!-- Форма регистрации (изначально скрыта) -->
-      <div class="auth-modal register-modal" style="display: none">
-        <div class="modal-content">
-          <span class="close-modal">&times;</span>
-          <h2>Регистрация</h2>
-          <form id="register-form">
+<!-- Форма регистрации (изначально скрыта) -->
+<div class="auth-modal register-modal" style="display: none">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2>Регистрация</h2>
+        <form id="register-form">
             <div class="form-group">
-              <label for="reg-username">Имя пользователя</label>
-              <input type="text" id="reg-username" required />
+                <label for="reg-username">Имя пользователя</label>
+                <input type="text" id="reg-username" required/>
             </div>
             <div class="form-group">
-              <label for="reg-email">Email</label>
-              <input type="email" id="reg-email" required />
+                <label for="reg-email">Email</label>
+                <input type="email" id="reg-email" required/>
             </div>
             <div class="form-group">
-              <label for="reg-password">Пароль</label>
-              <input type="password" id="reg-password" required />
+                <label for="reg-password">Пароль</label>
+                <input type="password" id="reg-password" required/>
             </div>
             <div class="form-group">
-              <label for="reg-confirm">Подтвердите пароль</label>
-              <input type="password" id="reg-confirm" required />
+                <label for="reg-confirm">Подтвердите пароль</label>
+                <input type="password" id="reg-confirm" required/>
             </div>
             <a href="MainScreen.html" class="btn-submit">Зарегистрироваться</a>
-          </form>
-        </div>
-      </div>
+        </form>
+    </div>
+</div>
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 MovieSync</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
-            </div>
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MovieSync</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
 
-   <script src="../../static/main/js/script.js"></script>
-    
+<script src="../../static/main/js/script.js"></script>
+
 </body>
 </html>

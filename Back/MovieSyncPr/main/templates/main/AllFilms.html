@@ -9,77 +9,79 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header class="header">
-        <a href="{% url 'main_screen' %}" class="logo">
-            <i class="fas fa-film"></i>
-            <span class="logo-text">MOVIESYNC</span>
-        </a>
-        
-        <div class="search-bar">
-            <input type="text" placeholder="Поиск фильмов...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-        
-        <div class="user-actions">
-            
-            <a href="{% url 'profile' %}">
-                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
-            </a>
-        </div>
-    </header>
+<header class="header">
+    <a href="{% url 'main_screen' %}" class="logo">
+        <i class="fas fa-film"></i>
+        <span class="logo-text">MOVIESYNC</span>
+    </a>
 
-    <div class="main-container">
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск фильмов...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="user-actions">
+
+        <a href="{}">
+            <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
+        </a>
+    </div>
+</header>
+
+<div class="main-container">
     <!-- Боковая панель -->
     <aside class="sidebar">
-            <nav>
-              <ul>
+        <nav>
+            <ul>
                 <li class="active">
-                  <a href="{% url 'main_screen' %}">
-                    <i class="fas fa-home"></i> Главная
-                  </a>
-                </li>
-                <li>
-                  <a href="{% url 'all_films' %}">
-                    <i class="fas fa-film"></i> Все фильмы
-                  </a>
-                </li>
-                <li>
-                  <a href="{% url 'favorite' %}">
-                    <i class="fas fa-heart"></i> Избранное
-                  </a>
-                </li>
-              </ul>
-            </nav>
-        </aside>
-
-        <!-- Контентная область -->
-        <main class="content">
-            <h1>Все фильмы</h1>
-            <main class="content">
-                <div class="movie-grid">
-                    <a href="{% url 'film' %}" class="movie-thumbnail">
-                        <div class="thumbnail-poster"></div>
-                        <div class="movie-title-small">Название фильма 1</div>
-                        <div class="rating-indicator green"></div>
-                        <button class="favorite-btn" onclick="toggleFavorite(event, 'Название фильма')">
-                            <i class="fas fa-heart"></i>
-                        </button>
+                    <a href="{% url 'main_screen' %}">
+                        <i class="fas fa-home"></i> Главная
                     </a>
-                </div>
-            </main>
-        </main>
-                
-    </div>
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 MovieSync</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
-            </div>
+                </li>
+                <li>
+                    <a href="{% url 'all_films' %}">
+                        <i class="fas fa-film"></i> Все фильмы
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'favorite' %}">
+                        <i class="fas fa-heart"></i> Избранное
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <main class="content">
+        <h1>Все фильмы</h1>
+        <!-- Контентная область -->
+        {% if films %}
+        <div class="movie-grid">
+            {% for film in films %}
+            <a href="{% url 'film_detail' film.id %}" class="movie-thumbnail">
+                <div class="thumbnail-poster"></div>
+                <div class="movie-title-small">{{ film.title }}</div>
+                <div class="rating-indicator green"></div>
+                <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </a>
+            {% endfor %}
         </div>
-    </footer>
-    <script src="../../static/main/js/script.js"></script>
+        {% else %}
+        <p>У вас нет записей</p>
+        {% endif %}
+
+</div>
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MovieSync</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
+<script src="../../static/main/js/script.js"></script>
 </body>
