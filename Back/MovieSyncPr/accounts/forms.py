@@ -4,6 +4,7 @@ from django.core.exceptions import ValidationError
 from django.forms import ModelForm, CharField, PasswordInput, TextInput, EmailInput, EmailField, ImageField
 
 from accounts.models import Users
+from django import forms
 
 
 class RegisterForm(ModelForm):
@@ -32,3 +33,8 @@ class RegisterForm(ModelForm):
         if email and get_user_model().objects.filter(email=email).exists():
             raise ValidationError('Данный email уже занят!')
         return cleaned_data
+
+class LoginForm(forms.Form):
+    username = CharField(label='Логин',
+                         widget=TextInput(attrs={'class': 'form-input'}))
+    password = CharField(label='Пароль', widget=PasswordInput(attrs={'class': 'form-input'}))
