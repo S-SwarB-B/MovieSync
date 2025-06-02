@@ -9,5 +9,4 @@ urlpatterns = [
     path('Profile/<int:profile_id>', views.profile, name='profile'),
     #path('Film/', views.film, name='film'),
     path('<int:pk>', views.FilsDetailView.as_view(), name='film_detail'),
-
 ]

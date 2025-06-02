@@ -9,102 +9,91 @@
     <link rel="stylesheet" href="../../static/main/css/CSSFile.css">
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <a href="{% url 'main_screen' %}" class="logo">
-            <i class="fas fa-film"></i>
-            <span class="logo-text">MOVIESYNC</span>
-        </a>
-        <div class="user-actions">
-            <button class="btn btn-primary">
-                <i class="fas fa-user"></i> Профиль
-            </button>
-        </div>
-    </header>
+<!-- Шапка -->
+<header class="header">
+    <a href="{% url 'main_screen' %}" class="logo">
+        <i class="fas fa-film"></i>
+        <span class="logo-text">MOVIESYNC</span>
+    </a>
+    <div class="user-actions">
+        <button class="btn btn-primary">
+            <i class="fas fa-user"></i> Профиль
+        </button>
+    </div>
+</header>
 
-    <!-- Основной контент -->
-    <div class="main-container">
-        <!-- Боковая панель -->
-        <aside class="sidebar">
-            <ul>
-                <li class="active">
-                    <i class="fas fa-user"></i> Личный кабинет
-                </li>
-                <li>
-                    <a href="Favorite.html" class="no-style">
-                        <i class="fas fa-heart"></i> Избранное
-                    </a>                    
-                </li>
-                <li>
-                    <i class="fas fa-history"></i> История просмотров
-                </li>
-                <li>
-                    <i class="fas fa-cog"></i> Настройки
-                </li>
-                <li>
-                    <i class="fas fa-sign-out-alt"></i> Выйти
-                </li>
-            </ul>
-        </aside>
+<!-- Основной контент -->
+<div class="main-container">
+    <!-- Боковая панель -->
+    <aside class="sidebar">
+        <ul>
+            <li class="active">
+                <i class="fas fa-user"></i> Личный кабинет
+            </li>
+            <li>
+                <a href="Favorite.html" class="no-style">
+                    <i class="fas fa-heart"></i> Избранное
+                </a>
+            </li>
+            <li>
+                <i class="fas fa-history"></i> История просмотров
+            </li>
+            <li>
+                <i class="fas fa-cog"></i> Настройки
+            </li>
+            <li>
+                <i class="fas fa-sign-out-alt"></i> Выйти
+            </li>
+        </ul>
+    </aside>
 
-        <!-- Контент страницы -->
-        <main class="content">
-            <div class="profile-container">
-                <div class="profile-header">
-                    <div class="profile-avatar">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <div>
-                        <h1 class="profile-title">Личный кабинет</h1>
-                        <p>Управляйте вашими персональными данными</p>
-                    </div>
+    <!-- Контент страницы -->
+    <main class="content">
+        <div class="profile-container">
+            <div class="profile-header">
+                <div class="profile-avatar">
+                    <i class="fas fa-user"></i>
                 </div>
+                <div>
+                    <h1 class="profile-title">Личный кабинет</h1>
+                    <p>Управляйте вашими персональными данными</p>
+                </div>
+            </div>
 
+            <form method="POST" action="">
+                {% csrf_token %}
                 <div class="profile-section">
                     <h2>Основная информация</h2>
                     <div class="form-group">
                         <label for="name">Имя</label>
-                        <input type="text" id="name" value="{{ profile.name }}">
+                        {{ form.username }}
                     </div>
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" id="email" value="{{ profile.email }}">
+                        {{ form.email }}
                     </div>
                     <div class="form-group">
                         <label for="password">Пароль</label>
-                        <input type="password" id="password" value="{{ profile.password }}">
+                        {{ form.password }}
                     </div>
                     <button class="btn btn-primary">Сохранить изменения</button>
                 </div>
+            </form>
 
-                <div class="divider"></div>
-
-                <div class="profile-section">
-                    <h2>Фото профиля</h2>
-                    <div class="form-group">
-                        <div class="profile-avatar" style="margin: 0 auto 1rem; cursor: pointer;">
-                            <i class="fas fa-camera"></i>
-                        </div>
-                        <input type="file" id="avatar" style="display: none;">
-                        <button class="btn btn-primary" onclick="document.getElementById('avatar').click()">
-                            Загрузить фото
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 MovieSync</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
-            </div>
         </div>
-    </footer>
+    </main>
+</div>
+
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MovieSync</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
 </body>
 </html>

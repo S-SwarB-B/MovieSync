@@ -6,7 +6,7 @@ class Users(models.Model):
     email = models.CharField(max_length=100)
     password =  models.CharField(max_length=100)
     picture = models.ImageField(upload_to='pictures/')
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
         verbose_name = 'Пользователь'

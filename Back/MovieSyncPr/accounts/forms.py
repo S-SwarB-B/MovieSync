@@ -1,7 +1,9 @@
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
-from django.forms import ModelForm, CharField, PasswordInput, TextInput, EmailInput
+from django.forms import ModelForm, CharField, PasswordInput, TextInput, EmailInput, EmailField, ImageField
+
+from accounts.models import Users
 
 
 class RegisterForm(ModelForm):
