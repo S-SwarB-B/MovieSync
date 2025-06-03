@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -127,9 +128,34 @@
             </nav>
         </aside>
         <main class="content">
-            <h1>Избранные фильмы</h1>
-            <div class="movie-grid" id="favoritesGrid"></div>
-        </main>
+        <h1>Избранные фильмы</h1>
+        {% if user.favorite_films.all %}
+        <div class="movie-grid">
+            {% for film in user.favorite_films.all %}
+            <a href="{% url 'film_detail' film.id %}" class="movie-thumbnail">
+                <div class="thumbnail-poster">
+                    <img src="{{ film.picture.url }}" alt="Постер">
+                </div>
+                <div class="movie-title-small">
+                    <h4>{{ film.title }}</h4>
+                </div>
+                {% if film.rating >= 8.0 %}
+                    <div class="rating-indicator green">{{ film.rating }}</div>
+                {% elif film.rating >= 5.0 %}
+                    <div class="rating-indicator yellow">{{ film.rating }}</div>
+                {% else %}
+                    <div class="rating-indicator red">{{ film.rating }}</div>
+                {% endif %}
+                <button class="favorite-btn active" onclick="toggleFavorite(event, '{{ film.title }}')">
+                    <i class="fas fa-heart"></i>
+                </button>
+            </a>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>У вас нет избранных фильмов.</p>
+        {% endif %}
+    </main>
     </div>
     <!-- Подвал -->
     <footer class="footer">

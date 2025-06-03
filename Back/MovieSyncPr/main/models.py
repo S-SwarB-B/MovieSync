@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.db import models
 
@@ -20,6 +21,7 @@ class Films(models.Model):
     description = models.CharField('Описание фильма', max_length=350)
     picture = models.ImageField(upload_to='')
     genres = models.ManyToManyField(Genre, related_name='films', blank=True)
+    favorites = models.ManyToManyField(User, related_name='favorite_films', blank=True)
     rating = models.DecimalField(
         max_digits=4,
         decimal_places=2,

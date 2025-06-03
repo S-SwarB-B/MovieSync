@@ -10,4 +10,6 @@ urlpatterns = [
     path('Profile/<int:profile_id>', views.profile, name='profile'),
     #path('Film/', views.film, name='film'),
     path('<int:pk>', views.FilsDetailView.as_view(), name='film_detail'),
+    path('films/<int:pk>/add_to_favorites/', views.add_to_favorites, name='add_to_favorites'),
+    path('films/<int:pk>/remove_from_favorites/', views.remove_from_favorites, name='remove_from_favorites'),
 ]

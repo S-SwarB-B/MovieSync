@@ -12,10 +12,19 @@
 <body>
 <!-- Шапка -->
 <header class="header">
-    <a href="{% url 'main_screen' %}" class="logo">
-        <i class="fas fa-film"></i>
-        <span class="logo-text">MOVIESYNC</span>
-    </a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'main_screen' %}" class="logo">
+            <i class="fas fa-film"></i>
+            <span class="logo-text">MOVIESYNC</span>
+        </a>
+        {% else %}
+
+        <a href="{% url 'main_screen_no_auth' %}" class="logo">
+            <i class="fas fa-film"></i>
+            <span class="logo-text">MOVIESYNC</span>
+        </a>
+
+    {% endif %}
 
     <div class="search-bar">
         <input type="text" placeholder="Поиск фильмов..." id="searchInput">
@@ -25,7 +34,7 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             const searchInput = $('#searchInput');
             const searchResults = $('#searchResults');
 
@@ -41,10 +50,10 @@
                         'q': query
                     },
                     dataType: 'json',
-                    success: function(data) {
+                    success: function (data) {
                         displayResults(data.results);
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.error("Ошибка поиска:", error);
                     }
                 });
@@ -59,7 +68,7 @@
                     return;
                 }
 
-                results.forEach(function(film) {
+                results.forEach(function (film) {
                     const movieElement = $(
                         `<div class="movie-result" data-movie-id="${film.id}">
                             <img src="${film.picture || '{% static "images/default_poster.jpg" %}'}" alt="${film.title}" class="movie-poster">
@@ -77,21 +86,21 @@
                 searchResults.addClass('active');
             }
 
-            searchInput.on('input', function() {
+            searchInput.on('input', function () {
                 performSearch($(this).val());
             });
 
-            $('#searchButton').on('click', function() {
+            $('#searchButton').on('click', function () {
                 performSearch(searchInput.val());
             });
 
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.search-bar').length) {
                     searchResults.removeClass('active');
                 }
             });
 
-            searchResults.on('click', '.movie-result', function() {
+            searchResults.on('click', '.movie-result', function () {
                 const movieId = $(this).data('movie-id');
                 window.location.href = `/${movieId}`;
             });
@@ -99,9 +108,11 @@
     </script>
 
     <div class="user-actions">
-        <a href="{}">
-            <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
-        </a>
+        {% if user.is_authenticated %}
+            <a href="{% url 'profile' user.id %}">
+                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
+            </a>
+        {% endif %}
     </div>
 </header>
 <main class="content">
@@ -132,6 +143,25 @@
                 <button class="btn-watch-together">Смотреть вместе</button>
             </div>
         </div>
+        {% if user.is_authenticated %}
+            {% if film in user.favorite_films.all %}
+                <form action="{% url 'remove_from_favorites' film.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-watch"
+                            style="background: linear-gradient(135deg, #FFD700, #FFA500);">Удалить из избранного
+                    </button>
+                </form>
+            {% else %}
+                <form action="{% url 'add_to_favorites' film.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-watch"
+                            style="background: linear-gradient(135deg, #FFD700, #FFA500);">Добавить в избранное
+                    </button>
+                </form>
+            {% endif %}
+        {% else %}
+            <p><a href="{% url 'accounts:login' %}">Войдите</a>, чтобы добавить фильм в избранное.</p>
+        {% endif %}
     </div>
 
     <div id="video-container" style="margin-top: 20px; display: none;">

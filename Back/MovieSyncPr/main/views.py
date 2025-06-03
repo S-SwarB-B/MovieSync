@@ -88,3 +88,13 @@ def movie_search(request):
         ]
     return JsonResponse({'results': results})
 
+def add_to_favorites(request,pk):
+    film = get_object_or_404(Films, pk=pk)
+    request.user.favorite_films.add(film)
+    return redirect('film_detail', pk=film.id)
+
+def remove_from_favorites(request,pk):
+    film = get_object_or_404(Films, pk=pk)
+    request.user.favorite_films.remove(film)
+    return redirect('film_detail', pk=film.id)
+
