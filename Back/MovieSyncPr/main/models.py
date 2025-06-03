@@ -7,7 +7,7 @@ from django.db import models
 class Films(models.Model):
     title = models.CharField('Название фильма',max_length=150)
     description = models.CharField('Описание фильма', max_length=350)
-    picture = models.ImageField(upload_to='pictures/films')
+    picture = models.ImageField(upload_to='')
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
 
     def __str__(self):

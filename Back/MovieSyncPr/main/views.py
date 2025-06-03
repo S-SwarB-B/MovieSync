@@ -60,7 +60,10 @@ def profile(request, profile_id):
     return render(request, 'main/Profile.html', data)
 
 def film(request):
-    return render(request, 'main/FilmCard.html')
+    picture = Films.objects.all()
+    return render(request, 'main/FilmCard.html', {
+        'picture': picture,
+    })
 
 
 

@@ -376,16 +376,25 @@ body {
 }
 
 .thumbnail-poster {
-    width: 100%;
+    overflow: hidden;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.thumbnail-poster img {
+    width: 150px;
     height: 180px;
-    background-color: #aaa;
-    border-radius: 10px 10px 0 0;
+    object-fit: cover;
+    display: block;
 }
 
 .movie-title-small {
-    padding: 0.5rem;
-    font-size: 0.9rem;
+    background-color: #e0e0e0; /* цвет полосы снизу */
+    padding: 0.6rem;
     text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
 }
 
 .rating-indicator {
