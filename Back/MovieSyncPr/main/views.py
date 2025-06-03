@@ -1,4 +1,6 @@
 from django.contrib.auth import get_user_model
+from django.db.models import Q
+from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import UpdateUserForm
@@ -66,4 +68,23 @@ def film(request):
     })
 
 
+def movie_search(request):
+    query = request.GET.get('q', '')
+    results = []
+    if query:
+        films = Films.objects.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query)
+        )[:10]
+
+        results = [
+            {
+                'id': film.id,
+                'title': film.title,
+                'picture': film.picture.url if film.picture else None,
+                'rating': film.rating,
+            }
+            for film in films
+        ]
+    return JsonResponse({'results': results})
 

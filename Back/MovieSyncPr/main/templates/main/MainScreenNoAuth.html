@@ -18,9 +18,85 @@
     </a>
 
     <div class="search-bar">
-        <input type="text" placeholder="Поиск фильмов..."/>
-        <button><i class="fas fa-search"></i></button>
+        <input type="text" placeholder="Поиск фильмов..." id="searchInput">
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+        <div class="search-results" id="searchResults"></div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const searchInput = $('#searchInput');
+            const searchResults = $('#searchResults');
+
+            function performSearch(query) {
+                if (query.length < 2) {
+                    searchResults.removeClass('active');
+                    return;
+                }
+
+                $.ajax({
+                    url: '{% url "movie_search" %}',
+                    data: {
+                        'q': query
+                    },
+                    dataType: 'json',
+                    success: function(data) {
+                        displayResults(data.results);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Ошибка поиска:", error);
+                    }
+                });
+            }
+
+            function displayResults(results) {
+                searchResults.empty();
+
+                if (results.length === 0) {
+                    searchResults.html('<div class="no-results">Ничего не найдено</div>');
+                    searchResults.addClass('active');
+                    return;
+                }
+
+                results.forEach(function(film) {
+                    const movieElement = $(
+                        `<div class="movie-result" data-movie-id="${film.id}">
+                            <img src="${film.picture || '{% static "images/default_poster.jpg" %}'}" alt="${film.title}" class="movie-poster">
+                            <div class="movie-info">
+                                <div class="movie-title">${film.title}</div>
+                                <div class="movie-rating"><i class="fas fa-star"></i>${film.rating}</div>
+                            </div>
+                        </div>
+                        <hr style="border: none;
+                         border-top: 2px solid gray;">`
+                    );
+                    searchResults.append(movieElement);
+                });
+
+                searchResults.addClass('active');
+            }
+
+            searchInput.on('input', function() {
+                performSearch($(this).val());
+            });
+
+            $('#searchButton').on('click', function() {
+                performSearch(searchInput.val());
+            });
+
+            $(document).on('click', function(e) {
+                if (!$(e.target).closest('.search-bar').length) {
+                    searchResults.removeClass('active');
+                }
+            });
+
+            searchResults.on('click', '.movie-result', function() {
+                const movieId = $(this).data('movie-id');
+                window.location.href = `/${movieId}`;
+            });
+        });
+    </script>
 
     <div class="user-actions">
         <a href="{% url 'accounts:login' %}" class="btn btn-login">
