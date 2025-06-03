@@ -63,6 +63,7 @@
         {% if films %}
             <div class="movie-grid">
                 {% for film in films %}
+                {% if film.rating > 8.00 %}
                     <a href="{% url 'film_detail' film.id %}" class="movie-thumbnail">
                         <div class="thumbnail-poster"></div>
                         <div class="movie-title-small">{{ film.title }}</div>
@@ -71,6 +72,7 @@
                             <i class="fas fa-heart"></i>
                         </button>
                     </a>
+                    {% endif %}
                 {% endfor %}
             </div>
         {% else %}

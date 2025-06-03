@@ -5,6 +5,8 @@ from .forms import UpdateUserForm
 from .models import Films
 from accounts.models import Users
 from django.views.generic import DetailView
+from django.contrib.auth.decorators import login_required 
+
 
 class FilsDetailView(DetailView):
     model = Films
@@ -19,17 +21,22 @@ def all_films_no_auth(request):
     films = Films.objects.all()
     return render(request, 'main/AllFilmsNoAuth.html', {'films': films})
 
+@login_required(login_url="accounts:login")
 def main_screen(request):
-    films = Films.objects.all()
-    return render(request, 'main/MainScreen.html', {'films': films})
-
+    if request.user.is_authenticated: 
+        films = Films.objects.all()
+        return render(request, 'main/MainScreen.html', {'films': films})
+    
+@login_required(login_url="accounts:login")
 def all_films(request):
     films = Films.objects.all()
     return render(request, 'main/AllFilms.html', {'films': films})
 
+@login_required(login_url="accounts:login")
 def favorite(request):
     return render(request, 'main/Favorite.html')
 
+@login_required(login_url="accounts:login")
 def profile(request, profile_id):
     profile_ = get_object_or_404(get_user_model(), pk=profile_id)
 
