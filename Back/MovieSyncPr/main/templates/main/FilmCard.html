@@ -1,4 +1,5 @@
-    <!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
@@ -9,28 +10,28 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Шапка -->
-    <header class="header">
-        <a href="{% url 'main_screen' %}" class="logo">
-            <i class="fas fa-film"></i>
-            <span class="logo-text">MOVIESYNC</span>
+<!-- Шапка -->
+<header class="header">
+    <a href="{% url 'main_screen' %}" class="logo">
+        <i class="fas fa-film"></i>
+        <span class="logo-text">MOVIESYNC</span>
+    </a>
+
+    <div class="search-bar">
+        <input type="text" placeholder="Поиск фильмов...">
+        <button><i class="fas fa-search"></i></button>
+    </div>
+
+    <div class="user-actions">
+        <a href="{}">
+            <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
         </a>
-
-        <div class="search-bar">
-            <input type="text" placeholder="Поиск фильмов...">
-            <button><i class="fas fa-search"></i></button>
-        </div>
-
-        <div class="user-actions">
-            <a href="{}" >
-                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
-            </a>
-        </div>
-    </header>
-    <main class="content">
+    </div>
+</header>
+<main class="content">
     <div class="movie-card">
         <div class="movie-poster">
-            <img src = "{{film.picture.url}}" alt="Картинка">
+            <img src="{{film.picture.url}}" alt="Картинка">
         </div>
         <div class="movie-details">
             <h2 class="movie-title">{{film.title}}</h2>
@@ -39,28 +40,55 @@
                 {{film.description}}
             </p>
             <div class="movie-buttons">
-                <button class="btn-watch">Смотреть</button>
+                <button class="btn-watch" id="watch-btn">Смотреть</button>
                 <button class="btn-watch-together">Смотреть вместе</button>
             </div>
         </div>
     </div>
+
+    <div id="video-container" style="margin-top: 20px; display: none;">
+        {% if film.video_url %}
+        {% if film.video_url|slice:":4" == "http" %}
+        <!-- YouTube / онлайн -->
+        <iframe width="560" height="315" src="{{ film.video_url }}" frameborder="0" allowfullscreen></iframe>
+        {% else %}
+        <!-- Локальный файл -->
+        <video width="560" height="315" controls>
+            <source src="{% static film.video_url %}" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        {% endif %}
+        {% else %}
+        <p>Видео недоступно.</p>
+        {% endif %}
+    </div>
 </main>
 
-    {% for film in films %}
-        <h3>{{film.title}}</h3>
-        <p>{{film.description}}</p>
-    {% endfor %}
+<script>
+  const btn = document.getElementById("watch-btn");
+  const videoContainer = document.getElementById("video-container");
 
-    <!-- Подвал -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 MovieSync</p>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-vk"></i></a>
-                <a href="#"><i class="fab fa-telegram"></i></a>
-                <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
-            </div>
+  btn.addEventListener("click", function() {
+    videoContainer.style.display = "block";
+    btn.style.display = "none";
+  });
+</script>
+
+{% for film in films %}
+<h3>{{film.title}}</h3>
+<p>{{film.description}}</p>
+{% endfor %}
+
+<!-- Подвал -->
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MovieSync</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
         </div>
-    </footer>
+    </div>
+</footer>
 </body>
 </html>

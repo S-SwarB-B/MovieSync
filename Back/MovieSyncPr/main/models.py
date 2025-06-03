@@ -9,6 +9,7 @@ class Films(models.Model):
     description = models.CharField('Описание фильма', max_length=350)
     picture = models.ImageField(upload_to='')
     rating = models.DecimalField(max_digits=3, decimal_places=2, null=True, blank=True)
+    video_url = models.CharField('Ссылка на видео или файл', max_length=255, blank=True)
 
     def __str__(self):
         return self.title
