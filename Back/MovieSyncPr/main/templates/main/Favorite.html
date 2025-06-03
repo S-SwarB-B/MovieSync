@@ -20,8 +20,12 @@
         </div>
         
         <div class="user-actions">
-            <a href="{}">
-                <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
+            <a href="{% url 'accounts:logout' %}" class="btn btn-profile hidden">
+            Выйти
+            </a>
+
+            <a href="{% url 'profile' user.id %}">
+            <button class="btn btn-profile hidden"><i class="fas fa-user"></i> Кабинет</button>
             </a>
         </div>
     </header>

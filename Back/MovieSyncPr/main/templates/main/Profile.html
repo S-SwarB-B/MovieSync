@@ -31,7 +31,7 @@
                 <i class="fas fa-user"></i> Личный кабинет
             </li>
             <li>
-                <a href="Favorite.html" class="no-style">
+                <a href="{% url 'favorite' %}" class="no-style">
                     <i class="fas fa-heart"></i> Избранное
                 </a>
             </li>
@@ -42,7 +42,9 @@
                 <i class="fas fa-cog"></i> Настройки
             </li>
             <li>
+                <a href = "{% url 'accounts:logout' %}">
                 <i class="fas fa-sign-out-alt"></i> Выйти
+                </a>
             </li>
         </ul>
     </aside>

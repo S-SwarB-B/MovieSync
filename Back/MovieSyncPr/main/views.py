@@ -38,6 +38,11 @@ def favorite(request):
 
 @login_required(login_url="accounts:login")
 def profile(request, profile_id):
+
+    if request.user.id != profile_id:
+        profile_id = request.user.id
+    
+
     profile_ = get_object_or_404(get_user_model(), pk=profile_id)
 
     if request.method == 'POST':
