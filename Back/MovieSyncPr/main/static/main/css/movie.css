@@ -33,6 +33,11 @@
     font-size: 0.9rem;
 }
 
+.movie-rating i.fa-star {
+    margin-right: 5px;
+    font-size: 0.95rem;
+}
+
 .movie-description {
     color: var(--text);
     line-height: 1.6;

@@ -399,8 +399,7 @@ body {
 
 .rating-indicator {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    color: #0a0a0a;
     top: 8px;
     right: 8px;
     border-radius: 4px;

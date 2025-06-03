@@ -31,13 +31,25 @@
 <main class="content">
     <div class="movie-card">
         <div class="movie-poster">
-            <img src="{{film.picture.url}}" alt="Картинка">
+            <img src="{{ film.picture.url }}" alt="Картинка">
         </div>
         <div class="movie-details">
-            <h2 class="movie-title">{{film.title}}</h2>
-            <p class="movie-tags">{{film.rating}}</p>
+            <h2 class="movie-title">{{ film.title }}</h2>
+            <p class="movie-rating" style="color: gold">
+                <i class="fas fa-star"></i> {{ film.rating }}
+            </p>
+            <p class="movie-tags">
+                Жанры:
+                {% for genre in film.genres.all %}
+                    {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                    {% empty %}
+                    Жанры не указаны
+                {% endfor %}
+            </p>
+
             <p class="movie-description">
-                {{film.description}}
+            <p>Описание:</p>
+            {{ film.description }}
             </p>
             <div class="movie-buttons">
                 <button class="btn-watch" id="watch-btn">Смотреть</button>
@@ -48,35 +60,35 @@
 
     <div id="video-container" style="margin-top: 20px; display: none;">
         {% if film.video_url %}
-        {% if film.video_url|slice:":4" == "http" %}
-        <!-- YouTube / онлайн -->
-        <iframe width="560" height="315" src="{{ film.video_url }}" frameborder="0" allowfullscreen></iframe>
+            {% if film.video_url|slice:":4" == "http" %}
+                <!-- YouTube / онлайн -->
+                <iframe width="560" height="315" src="{{ film.video_url }}" frameborder="0" allowfullscreen></iframe>
+            {% else %}
+                <!-- Локальный файл -->
+                <video width="560" height="315" controls>
+                    <source src="{% static film.video_url %}" type="video/mp4">
+                    Ваш браузер не поддерживает видео.
+                </video>
+            {% endif %}
         {% else %}
-        <!-- Локальный файл -->
-        <video width="560" height="315" controls>
-            <source src="{% static film.video_url %}" type="video/mp4">
-            Ваш браузер не поддерживает видео.
-        </video>
-        {% endif %}
-        {% else %}
-        <p>Видео недоступно.</p>
+            <p>Видео недоступно.</p>
         {% endif %}
     </div>
 </main>
 
 <script>
-  const btn = document.getElementById("watch-btn");
-  const videoContainer = document.getElementById("video-container");
+    const btn = document.getElementById("watch-btn");
+    const videoContainer = document.getElementById("video-container");
 
-  btn.addEventListener("click", function() {
-    videoContainer.style.display = "block";
-    btn.style.display = "none";
-  });
+    btn.addEventListener("click", function () {
+        videoContainer.style.display = "block";
+        btn.style.display = "none";
+    });
 </script>
 
 {% for film in films %}
-<h3>{{film.title}}</h3>
-<p>{{film.description}}</p>
+    <h3>{{ film.title }}</h3>
+    <p>{{ film.description }}</p>
 {% endfor %}
 
 <!-- Подвал -->

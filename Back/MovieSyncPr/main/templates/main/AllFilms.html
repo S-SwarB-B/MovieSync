@@ -66,7 +66,13 @@
                     <img src = "{{film.picture.url}}" alt="Картинка">
                 </div>
                 <div class="movie-title-small" style = "color: black;  "><h4>{{ film.title }}</h4></div>
-                <div class="rating-indicator green"></div>
+                {% if film.rating >= 8.0 %}
+                                <div class="rating-indicator green">{{ film.rating }}</div>
+                            {% elif film.rating >= 5.0 %}
+                                <div class="rating-indicator yellow">{{ film.rating }}</div>
+                            {% else %}
+                                <div class="rating-indicator red">{{ film.rating }}</div>
+                            {% endif %}
                 <button class="favorite-btn-no-style" onclick="showAuthWarning(event)">
                     <i class="fas fa-heart"></i>
                 </button>
@@ -76,6 +82,7 @@
         {% else %}
         <p>У вас нет записей</p>
         {% endif %}
+    </main>
 </div>
 <!-- Подвал -->
 <footer class="footer">
