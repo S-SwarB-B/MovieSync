@@ -7,34 +7,52 @@ from accounts.models import Users
 from django import forms
 
 
-class RegisterForm(ModelForm):
-    username = CharField(label='Имя')
-    email = CharField(label='Email', widget=EmailInput)
-    password = CharField(label='Пароль', widget=PasswordInput)
-    password2 = CharField(label='Повтор пароля', widget=PasswordInput)
+from django import forms
+from django.contrib.auth import get_user_model
+
+class RegisterForm(forms.ModelForm):
+    username = forms.CharField(
+        label='Имя',
+        widget=forms.TextInput(attrs={'class': 'form-input'})
+    )
+    email = forms.EmailField(
+        label='Email',
+        widget=forms.EmailInput(attrs={'class': 'form-input'})
+    )
+    password = forms.CharField(
+        label='Пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-input'})
+    )
+    password2 = forms.CharField(
+        label='Повтор пароля',
+        widget=forms.PasswordInput(attrs={'class': 'form-input'})
+    )
 
     class Meta:
         model = get_user_model()
         fields = ['username', 'email', 'password', 'password2']
-        labels = {
-            'email': 'Email',
-            'username': 'Имя',
-        }
 
     def clean_password2(self):
-        cd = self.cleaned_data
-        if cd.get('password') != cd.get('password2'):
-            raise ValidationError("Пароли не совпадают")
-        return cd['password2']
+        password = self.cleaned_data.get('password')
+        password2 = self.cleaned_data.get('password2')
+        if password and password2 and password != password2:
+            raise forms.ValidationError('Пароли не совпадают')
+        return password2
 
-    def clean(self):
-        cleaned_data = super().clean()
-        email = cleaned_data.get('email')
-        if email and get_user_model().objects.filter(email=email).exists():
-            raise ValidationError('Данный email уже занят!')
-        return cleaned_data
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.set_password(self.cleaned_data['password'])
+        if commit:
+            user.save()
+        return user
 
 class LoginForm(forms.Form):
-    username = CharField(label='Логин',
-                         widget=TextInput(attrs={'class': 'form-input'}))
-    password = CharField(label='Пароль', widget=PasswordInput(attrs={'class': 'form-input'}))
+    username = forms.CharField(
+        label='Логин',
+        widget=forms.TextInput(attrs={'class': 'form-input'})
+    )
+    password = forms.CharField(
+        label='Пароль',
+        widget=forms.PasswordInput(attrs={'class': 'form-input'})
+    )
+

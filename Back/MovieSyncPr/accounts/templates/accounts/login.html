@@ -1,15 +1,47 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Авторизация</title>
+    <link rel="stylesheet" href="{% static 'main/css/CSSFile.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<form method="post">
-    {% csrf_token %}
-    {{ form }}
-    <p><button type="submit">Войти</button></p>
-</form>
+<div class="main-container">
+    <div class="auth-modal" style="display: flex;">  <!-- сразу отображаем -->
+        <div class="modal-content">
+            <a href="{% url 'main_screen_no_auth' %}" class="close-modal" title="Закрыть">&times;</a>
+            <h2>Вход в аккаунт</h2>
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    {{ form.username.label_tag }}
+                    {{ form.username }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label_tag }}
+                    {{ form.password }}
+                </div>
+
+                <button type="submit" class="btn-submit">Войти</button>
+            </form>
+        </div>
+    </div>
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <p>© 2025 MovieSync</p>
+        <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="https://github.com/S-SwarB-B/MovieSync"><i class="fab fa-github"></i></a>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>

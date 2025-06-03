@@ -20,8 +20,11 @@
         <button><i class="fas fa-search"></i></button>
     </div>
     <div class="user-actions">
-        <button class="btn btn-login"><i class="fas fa-sign-in-alt"></i> Войти</button>
-        <a href="{% url 'accounts: register' %}" class="btn btn-register">
+        <a href="{% url 'accounts:login' %}" class="btn btn-login">
+            <i class="fas fa-sign-in-alt"></i> Войти
+        </a>
+
+        <a href="{% url 'accounts:register' %}" class="btn btn-register">
             <i class="fas fa-user-plus"></i> Регистрация
         </a>
         <!-- Кнопка «Кабинет» удалена -->
@@ -69,25 +72,6 @@
 
 <div id="auth-toast" class="auth-toast hidden">
     Доступно только авторизованным пользователям
-</div>
-
-<!-- Форма входа (изначально скрыта) -->
-<div class="auth-modal login-modal" style="display: none">
-    <div class="modal-content">
-        <span class="close-modal">&times;</span>
-        <h2>Вход в аккаунт</h2>
-        <form id="login-form">
-            <div class="form-group">
-                <label for="login-email">Email</label>
-                <input type="email" id="login-email" required/>
-            </div>
-            <div class="form-group">
-                <label for="login-password">Пароль</label>
-                <input type="password" id="login-password" required/>
-            </div>
-            <a href="MainScreen.html" class="btn-submit">Войти</a>
-        </form>
-    </div>
 </div>
 
 <!-- Подвал -->
