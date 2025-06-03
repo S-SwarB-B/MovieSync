@@ -4,7 +4,7 @@ from django.http import JsonResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import UpdateUserForm
-from .models import Films
+from .models import Films, Genre
 from accounts.models import Users
 from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required 
@@ -69,12 +69,13 @@ def film(request):
 
 
 def movie_search(request):
-    query = request.GET.get('q', '')
+    query = request.GET.get('q', '').strip()
+
     results = []
     if query:
         films = Films.objects.filter(
-            Q(title__icontains=query) |
-            Q(description__icontains=query)
+            Q(title__iregex=query) |
+            Q(description__iregex=query)
         )[:10]
 
         results = [

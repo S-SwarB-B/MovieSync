@@ -5,20 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7ba1f71-7afc-4ed3-a9ea-9f50c8627afc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/main/css/SearchCSS.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main/static/main/css/SearchForFilmCardCSS.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MovieSyncPr/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/MovieSyncPr/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/templates/accounts/register_done.html" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/templates/accounts/register_done.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/static/main/css/CSSFile.css" beforeDir="false" afterPath="$PROJECT_DIR$/main/static/main/css/CSSFile.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/static/main/css/CSSFileForMovie.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/AllFilms.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/AllFilms.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/AllFilmsNoAuth.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/AllFilmsNoAuth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/Favorite.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/Favorite.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/templates/main/FilmCard.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/FilmCard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/MainScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/MainScreen.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/templates/main/MainScreenNoAuth.html" beforeDir="false" afterPath="$PROJECT_DIR$/main/templates/main/MainScreenNoAuth.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,6 +32,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -62,6 +61,7 @@
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "D:/Programming/Python/Django/MovieSync/Back/MovieSyncPr/main",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -129,6 +129,7 @@
       <workItem from="1748906722809" duration="5779000" />
       <workItem from="1748973623666" duration="4125000" />
       <workItem from="1748978218967" duration="5952000" />
+      <workItem from="1748989567779" duration="4989000" />
     </task>
     <servers />
   </component>
