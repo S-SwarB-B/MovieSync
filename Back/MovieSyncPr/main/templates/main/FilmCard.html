@@ -177,14 +177,14 @@
         {% endif %}
     </div>
 
-    <div id="video-container" style="margin-top: 20px; display: none;">
+    <div id="video-container" style="margin-top: 20px; display: none; text-align: center;">
         {% if film.video_url %}
             {% if film.video_url|slice:":4" == "http" %}
                 <!-- YouTube / онлайн -->
-                <iframe width="560" height="315" src="{{ film.video_url }}" frameborder="0" allowfullscreen></iframe>
+                <iframe width="1020" height="630" src="{{ film.video_url }}" style="background: var(--darker-bg);" frameborder="0" allowfullscreen></iframe>
             {% else %}
                 <!-- Локальный файл -->
-                <video width="560" height="315" controls>
+                <video width="1020" height="630" style="background: var(--darker-bg);" controls>
                     <source src="{% static film.video_url %}" type="video/mp4">
                     Ваш браузер не поддерживает видео.
                 </video>
