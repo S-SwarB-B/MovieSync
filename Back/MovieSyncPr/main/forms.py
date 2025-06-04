@@ -17,8 +17,7 @@ class UpdateUserForm(ModelForm):
     def save(self, commit=True):
         user = super().save(commit=False)
         password = self.cleaned_data.get('password')
-        
-        # Хешируем пароль только если он был изменен (поле не пустое)
+
         if password:
             user.password = make_password(password)
         
