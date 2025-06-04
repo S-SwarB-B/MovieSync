@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse
 
 
@@ -47,6 +47,7 @@ class LoginViewTest(TestCase):
 
 
 User = get_user_model()
+
 
 class RegisterViewTests(TestCase):
 
@@ -132,3 +133,41 @@ class RegisterViewTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'accounts/register.html')
         self.assertContains(response, 'Обязательное поле', count=4)
+
+
+
+class ProfileViewTests(TestCase):
+    def setUp(self):
+        self.client = Client()
+        self.user1 = get_user_model().objects.create_user(username='user1', password='testpass123')
+        self.user2 = get_user_model().objects.create_user(username='user2', password='testpass456')
+        self.profile_url = lambda user_id: reverse('profile', args=[user_id])
+
+    def test_redirect_if_not_logged_in(self):
+        response = self.client.get(self.profile_url(self.user1.id))
+        self.assertRedirects(response, '/accounts/login/?next=' + self.profile_url(self.user1.id))
+
+    def test_view_own_profile(self):
+        self.client.login(username='user1', password='testpass123')
+        response = self.client.get(self.profile_url(self.user1.id))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'form')  # предполагается, что шаблон содержит форму
+
+    def test_redirect_to_own_profile_if_accessing_another(self):
+        self.client.login(username='user1', password='testpass123')
+        response = self.client.get(self.profile_url(self.user2.id))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'form')  # всё равно видим свою форму
+        self.assertEqual(response.context['profile'].id, self.user1.id)
+
+    def test_profile_update_post(self):
+        self.client.login(username='user1', password='testpass123')
+        response = self.client.post(self.profile_url(self.user1.id), {
+            'username': 'newusername',
+            'email': 'newemail@example.com',
+            # если UpdateUserForm требует другие поля — добавь их
+        }, follow=True)  # <--- Это важно
+        self.assertEqual(response.status_code, 200)
+        self.user1.refresh_from_db()
+        self.assertEqual(self.user1.username, 'newusername')
+        self.assertEqual(self.user1.email, 'newemail@example.com')
