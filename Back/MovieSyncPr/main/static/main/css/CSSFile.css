@@ -474,3 +474,39 @@ a.btn-submit:hover {
 .close-modal:hover {
     color: var(--primary);
 }
+
+.chat-input-field,
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: var(--text);
+}
+
+.form-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+
+#chat-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 8px;
+    padding: 10px;
+}
+
+.chat-message {
+    padding: 8px 12px;
+    border-radius: 12px;
+    max-width: 80%;
+    word-break: break-word;
+    background-color: var(--primary-dark); 
+    text-align: left;
+    margin-right: auto; 
+}
