@@ -21,11 +21,27 @@ class LoginViewTest(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse('main_screen'))
 
-    def test_login_failure(self):
-        """Тестирование неудачного входа"""
+    def test_login_failure_password(self):
+        """Тестирование неудачного входа с неверным password"""
         response = self.client.post(self.login_url, {
             'username': 'Гришаня',
             'password': '4224124'
+        })
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_failure_username(self):
+        """Тестирование неудачного входа с неверным username"""
+        response = self.client.post(self.login_url, {
+            'username': 'Гришаня1',
+            'password': '123456'
+        })
+        self.assertEqual(response.status_code, 200)
+
+    def test_login_failure_both(self):
+        """Тестирование неудачного входа с неверным username и password"""
+        response = self.client.post(self.login_url, {
+            'username': 'Гришаня1',
+            'password': '1234563123'
         })
         self.assertEqual(response.status_code, 200)
 
