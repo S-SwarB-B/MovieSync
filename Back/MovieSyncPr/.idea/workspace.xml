@@ -5,13 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7ba1f71-7afc-4ed3-a9ea-9f50c8627afc" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Использования.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Использования.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Компонентов.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Компонентов.drawio" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Состояний.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Состояний.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
