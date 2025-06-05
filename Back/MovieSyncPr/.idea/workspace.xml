@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="e7ba1f71-7afc-4ed3-a9ea-9f50c8627afc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Использования.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Использования.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Компонентов.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Компонентов.drawio" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Состояний.drawio" beforeDir="false" afterPath="$PROJECT_DIR$/../../Документация/UML/UML для личного кабинета/Диаграмма_Состояний.drawio" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,6 +168,7 @@
       <workItem from="1748989567779" duration="4989000" />
       <workItem from="1748994774974" duration="609000" />
       <workItem from="1749062962404" duration="5923000" />
+      <workItem from="1749082427214" duration="6397000" />
     </task>
     <servers />
   </component>
